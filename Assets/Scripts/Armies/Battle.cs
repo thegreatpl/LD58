@@ -192,6 +192,14 @@ public class Battle : MonoBehaviour, ITickable
     public void EndTick()
     {
     }
+
+    public void MonthTick()
+    {
+    }
+
+    public void YearTick()
+    {
+    }
 }
 public class CombatLine
 {

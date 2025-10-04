@@ -13,7 +13,14 @@ public class TimeManager : MonoBehaviour
 
     public int MaxUpdated = 20;
 
-    public float TimeBetweenTicks = 2.5f; 
+    public float TimeBetweenTicks = 2.5f;
+
+
+    public int DayOfMonth =1;
+
+    public int Month = 1; 
+
+    public int Year = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,6 +67,20 @@ public class TimeManager : MonoBehaviour
                     currentupdated = 0;
                 }
             }
+            DayOfMonth++; 
+            if (DayOfMonth == 30)
+            {
+                TimeEntities.ForEach(x => x.MonthTick()); 
+                Month++;
+                DayOfMonth = 1;
+            }
+            if (Month == 12)
+            {
+                TimeEntities.ForEach(x => x.YearTick()); 
+                Year++;
+                Month = 0; 
+            }
+
 
             yield return new WaitForSeconds(TimeBetweenTicks);
             

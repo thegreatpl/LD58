@@ -13,6 +13,11 @@ public interface ITickable
      void Tick();
 
 
-    void EndTick(); 
+    void EndTick();
+
+
+    void MonthTick();
+
+    void YearTick(); 
 }
 

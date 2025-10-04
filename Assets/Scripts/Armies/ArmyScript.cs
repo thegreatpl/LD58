@@ -108,4 +108,12 @@ public class ArmyScript : MonoBehaviour, ITickable
             coolDown--;
         }
     }
+
+    public void MonthTick()
+    {
+    }
+
+    public void YearTick()
+    {
+    }
 }

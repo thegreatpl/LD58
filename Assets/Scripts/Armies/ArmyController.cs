@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class ArmyController : MonoBehaviour
 {
+    public static float EngagementRange = 1;  
+
     public enum ArmyBehaviour
     {
         Defend, //remain in place no matter what. 
@@ -38,19 +41,33 @@ public class ArmyController : MonoBehaviour
 
     public int RunTick()
     {
+        var nearby = GetAllVisionObjects(ArmyScript.SightDistance).Select(x => x.GetComponent<ArmyScript>());
+        var nearestEnemy = nearby.Where(x => x.Faction != ArmyScript.Faction)
+                    .OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).FirstOrDefault();
+
+        if (nearestEnemy != null)
+        { 
+            if (Vector3.Distance(transform.position, nearestEnemy.transform.position) < EngagementRange)
+            {
+                var prefab = GameManager.instance.PrefabManager.GetPrefab("Battle");
+                var newobj = Instantiate(prefab); 
+                newobj.transform.position = Vector3.Lerp(transform.position, nearestEnemy.transform.position, 0.5f);
+                newobj.GetComponent<Battle>().CreateBattle(ArmyScript, nearestEnemy);
+            }
+        }
+
+
+
         switch (currentBehaviour)
         {
             case ArmyBehaviour.Defend:
                 return 0;
             case ArmyBehaviour.Guard:
 
-                var look = GetAllVisionObjects(ArmyScript.SightDistance).Select(x => x.GetComponent<ArmyScript>());
-                var target = look.Where(x => x.Faction != ArmyScript.Faction)
-                    .OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).FirstOrDefault();
-
-                if (target != null)
+               
+                if (nearestEnemy != null)
                 {
-                    return MoveTo(target.transform.position); 
+                    return MoveTo(nearestEnemy.transform.position); 
                 }
 
                 return MoveTo(MoveToLocation); //go back to where it is supposed to be guarding. 

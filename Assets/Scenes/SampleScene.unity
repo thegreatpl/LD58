@@ -198,6 +198,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &362797663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6902485969562828468, guid: a45273dcbdcaa154aba1c20aa3d17a1c, type: 3}
+  m_PrefabInstance: {fileID: 5769512208821305809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &362797669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362797663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca3687c3622d6142a9c9096f30a1779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Faction
+  Name: PlayerFaction
+  FactionColor: {r: 0.008547783, g: 1, b: 0, a: 0}
+  Cash: 0
+--- !u!114 &362797670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362797663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d658b184a7260c45ae64e1db24b7045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  PlayerFaction: {fileID: 362797669}
+  SelectedArmies: []
+  SelectedCities: []
+  Camera: {fileID: 519420031}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,8 +601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b356a686cf14e4985bd307eefc3dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Faction: {fileID: 0}
-  FactionName: 
+  Faction: {fileID: 362797669}
+  FactionName: PlayerFaction
 --- !u!61 &1468395294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -625,7 +661,6 @@ GameObject:
   - component: {fileID: 1879043377}
   - component: {fileID: 1879043376}
   - component: {fileID: 1879043375}
-  - component: {fileID: 1879043374}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -633,21 +668,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1879043374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879043373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d658b184a7260c45ae64e1db24b7045, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  PlayerFaction: {fileID: 0}
-  SelectedArmies: []
-  Camera: {fileID: 519420031}
 --- !u!114 &1879043375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,7 +805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5941790052798876730, guid: e57a16a05935aa543ab87e835f4603ac, type: 3}
       propertyPath: Faction
-      value: TST
+      value: PlayerFaction
       objectReference: {fileID: 0}
     - target: {fileID: 5941790052798876730, guid: e57a16a05935aa543ab87e835f4603ac, type: 3}
       propertyPath: Units.Array.size
@@ -886,7 +906,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6902485969562828468, guid: a45273dcbdcaa154aba1c20aa3d17a1c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 362797670}
+    - targetCorrespondingSourceObject: {fileID: 6902485969562828468, guid: a45273dcbdcaa154aba1c20aa3d17a1c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 362797669}
   m_SourcePrefab: {fileID: 100100000, guid: a45273dcbdcaa154aba1c20aa3d17a1c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

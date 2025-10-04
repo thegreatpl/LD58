@@ -4,14 +4,14 @@ using UnityEngine.Rendering;
 
 public class UnitManager : MonoBehaviour
 {
-    List<UnitTemplate> Units = new List<UnitTemplate>();
+    public List<UnitTemplate> Units = new List<UnitTemplate>();
 
     Dictionary<string, UnitTemplate> UnitTypes = new Dictionary<string, UnitTemplate>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        LoadUnits();
     }
 
     // Update is called once per frame

@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -60,8 +61,8 @@ public class PlayerController : MonoBehaviour
             var currentPos = Camera.ScreenToWorldPoint(MousePosition.ReadValue<Vector2>());
 
             var gameobj = GetAllWithinArea(selectStartPoint, currentPos);
-            var armies = gameobj.Select(x => x.GetComponent<ArmyScript>()).Where(x => x?.Faction == PlayerFaction.Name);
-            var citie = gameobj.Select(x => x.GetComponent<CityScript>()).Where(x => x?.FactionName == PlayerFaction.Name);
+            var armies = gameobj.Select(x => x.GetComponent<ArmyScript>()).Where(x => x?.Faction == PlayerFaction?.Name);
+            var citie = gameobj.Select(x => x.GetComponent<CityScript>()).Where(x => x?.FactionName == PlayerFaction?.Name);
             SelectedArmies = armies.ToList(); 
             SelectedCities = citie.ToList();
 
@@ -72,7 +73,10 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerable<GameObject> GetAllWithinArea(Vector3 startPoint, Vector3 EndPoint)
     {
-        var objs = Physics2D.OverlapBoxAll(startPoint, startPoint - EndPoint, 0);
+        var maxCorner = new Vector2(Mathf.Max(startPoint.x, EndPoint.x), Mathf.Max(startPoint.y, EndPoint.y));
+        var minCorner = new Vector2(Mathf.Min(startPoint.x, EndPoint.x), Mathf.Min(startPoint.y, EndPoint.y));
+        //this is broken. Fix it. 
+        var objs = Physics2D.OverlapBoxAll(minCorner, maxCorner - minCorner, 0);
 
         foreach (var obj in objs)
         {

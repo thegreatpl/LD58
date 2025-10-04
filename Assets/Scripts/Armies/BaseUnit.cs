@@ -27,4 +27,7 @@ public class BaseUnit
     public float MoraleAttk; 
 
     public float MoraleDefense;
+
+
+    public float MovementSpeed; 
 }

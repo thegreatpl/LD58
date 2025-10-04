@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9032265200076095645
+--- !u!1 &7328799570103217666
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3789079786637672088}
-  - component: {fileID: 2386998554274529880}
-  - component: {fileID: 5941790052798876730}
-  - component: {fileID: 3730496047228398548}
+  - component: {fileID: 4488231753806018097}
+  - component: {fileID: 6325001245147539035}
+  - component: {fileID: 8207863791239384403}
   m_Layer: 0
-  m_Name: Army
+  m_Name: Battle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3789079786637672088
+--- !u!4 &4488231753806018097
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9032265200076095645}
+  m_GameObject: {fileID: 7328799570103217666}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.508527, y: 2.5280795, z: 0}
+  m_LocalPosition: {x: -3.774376, y: 2.550459, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2386998554274529880
+--- !u!212 &6325001245147539035
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9032265200076095645}
+  m_GameObject: {fileID: 7328799570103217666}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -81,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0c2427b56bccdf74091ebac9ee4f271c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 921ae58739c17774c878b4dd7daa0cb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,30 +91,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5941790052798876730
+--- !u!114 &8207863791239384403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9032265200076095645}
+  m_GameObject: {fileID: 7328799570103217666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc739b84cf812e4a9adbdf8d25b2e96, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d8b70c713db1a243a18cd5e2755a3e0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ArmyScript
-  Faction: 
-  Units: []
-  CurrentBattle: {fileID: 0}
---- !u!114 &3730496047228398548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9032265200076095645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4495fdaaf0dd25d478843b56ea77e1d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::Battle
+  AttackerArmy: {fileID: 0}
+  DefenderArmy: {fileID: 0}
+  CurrentPhase: 0

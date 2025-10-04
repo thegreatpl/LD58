@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
 
     public TimeManager TimeManager;
 
+    public UnitManager UnitManager;
+
+    public PrefabManager PrefabManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +24,9 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         TimeManager = GetComponent<TimeManager>();
+        PrefabManager = GetComponent<PrefabManager>();
+        UnitManager = GetComponent<UnitManager>();
+
         StartCoroutine(StartGame()); 
     }
 

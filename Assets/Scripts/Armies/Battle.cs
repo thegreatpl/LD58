@@ -49,6 +49,9 @@ public class Battle : MonoBehaviour, ITickable
         AttackerArmy = attacker;
         DefenderArmy = defender;
 
+        AttackerArmy.CurrentBattle = this;
+        DefenderArmy.CurrentBattle = this; 
+
         foreach(var unit in attacker.Units)
             AttackReserve.Enqueue(unit);
         foreach(var unit in defender.Units)
@@ -155,10 +158,12 @@ public class Battle : MonoBehaviour, ITickable
         if (AttackerLine.Line.Count < 1)
         {
             AttackerArmy.DestroyArmy();
+            Destroy(gameObject);
         }
         if (DefenderLine.Line.Count < 1)
         {
             DefenderArmy.DestroyArmy();
+            Destroy(gameObject);
         }
 
     }

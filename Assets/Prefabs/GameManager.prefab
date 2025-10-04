@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   IsPaused: 0
   MaxUpdated: 20
-  TimeBetweenTicks: 2.5
+  TimeBetweenTicks: 0.05
 --- !u!114 &6623714597724731995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,4 +90,7 @@ MonoBehaviour:
   Prefabs:
   - Name: Army
     Prefab: {fileID: 9032265200076095645, guid: e57a16a05935aa543ab87e835f4603ac, type: 3}
+    Type: Entities
+  - Name: Battle
+    Prefab: {fileID: 7328799570103217666, guid: 45b315e078e28b546a016017a6fd10e5, type: 3}
     Type: Entities

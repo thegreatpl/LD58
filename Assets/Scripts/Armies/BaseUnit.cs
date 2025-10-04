@@ -12,9 +12,9 @@ public class BaseUnit
     public string Type;
 
 
-    public int CurrentSize;
+    public float CurrentSize;
 
-    public int MaxSize; 
+    public float MaxSize; 
 
     public float FireAttk;
 
